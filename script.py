@@ -15,9 +15,9 @@ imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
 
 imputer.fit(X[:,1:3])
 X[:,1:3] = imputer.transform(X[:,1:3])
-
+print(X)
 ct = ColumnTransformer(transformers=[('encoder',OneHotEncoder(),[0])],remainder='passthrough')
-ct.fit_transform(X)
+X = np.array(ct.fit_transform(X))
 
 #print(X)
 #print(dataset)
